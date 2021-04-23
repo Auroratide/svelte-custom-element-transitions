@@ -1,0 +1,11 @@
+{
+  "name": "@auroratide/svelte-custom-element-transitions",
+  "version": "0.0.1",
+  "description": "Utility for making svelte transitions work on custom elements",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Timothy Foster",
+  "license": "ISC"
+}

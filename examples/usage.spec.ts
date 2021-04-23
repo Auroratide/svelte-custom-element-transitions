@@ -1,7 +1,10 @@
-import { expect } from 'chai'
+import { Selector } from 'testcafe'
 
-describe('Something', () => {
-    it('works', () => {
-        expect(1).to.equal(1)
-    })
+fixture `A Test`
+    .page `http://localhost:5000`
+
+test('testing', async t => {
+    const text = Selector(() => document.querySelector('my-app').shadowRoot.querySelector('h1'))
+
+    await t.expect(text.innerText).eql('Hello world!')
 })

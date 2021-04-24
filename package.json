@@ -21,6 +21,8 @@
     "@rollup/plugin-commonjs": "^18.0.0",
     "@rollup/plugin-node-resolve": "^11.2.1",
     "@rollup/plugin-typescript": "^8.2.1",
+    "@types/mathjs": "^6.0.11",
+    "mathjs": "^9.3.2",
     "rollup": "^2.45.2",
     "rollup-plugin-livereload": "^2.0.0",
     "rollup-plugin-svelte": "^7.1.0",

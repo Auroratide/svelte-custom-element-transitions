@@ -3,6 +3,7 @@ import {
     fade as sFade,
     blur as sBlur,
     fly as sFly,
+    slide as sSlide,
  } from 'svelte/transition'
 
 /**
@@ -25,3 +26,4 @@ export function forCustomElement<T>(original: (node: HTMLElement, params: T) => 
 export const fade = forCustomElement(sFade)
 export const blur = forCustomElement(sBlur)
 export const fly = forCustomElement(sFly)
+export const slide = forCustomElement(sSlide)

@@ -70,6 +70,10 @@ test('Svelte Transitions', async t => {
             return [0, 0]
         }
     }).verify(t)
+
+    await new TransitioningComponent('slide-example', (style: StyleList) => {
+        return [parseFloat(style['height'] ?? '0')]
+    }).verify(t)
 })
 
 test('Custom Transitions', async t => {

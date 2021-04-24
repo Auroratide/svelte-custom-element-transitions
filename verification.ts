@@ -61,4 +61,14 @@ test('Transitions', async t => {
         const match = style['filter'].match(/blur\((.*?)\)/)
         return [match ? parseFloat(match[1]) : 0]
     }).verify(t)
+
+    await new TransitioningComponent('custom-example', (style: StyleList) => {
+        const match = style['transform'].match(/matrix\((.*?)\)/)
+        if (match) {
+            const [a, b, c, d, _tx, _ty] = match[1].split(',').map(n => parseFloat(n))
+            return [a, b, c, d]
+        } else {
+            return [0, 0, 0, 0]
+        }
+    }).verify(t)
 })

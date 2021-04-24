@@ -6,5 +6,7 @@ import './svelte-transitions/ScaleExample.svelte'
 import './svelte-transitions/SlideExample.svelte'
 import './custom-transitions/BasicExample.svelte'
 import './custom-transitions/InAndOutExample.svelte'
+import './custom-transitions/TickExample.svelte'
+import './MyProgress.svelte'
 
 export default { }

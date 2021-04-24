@@ -15,9 +15,9 @@ const inAnimation: VerificationEnding = (node: NodeSnapshot) => node.style['anim
 class TransitioningComponent {
     private name: string
     private component: Selector
-    private transitioningValues: (style: StyleList) => number[]
+    private transitioningValues: (style: StyleList, node: NodeSnapshot) => number[]
 
-    constructor(name: string, transitioningValues: (style: StyleList) => number[]) {
+    constructor(name: string, transitioningValues: (style: StyleList, node: NodeSnapshot) => number[]) {
         this.name = name
         this.component = Selector(name).shadowRoot()
         this.transitioningValues = transitioningValues
@@ -37,7 +37,7 @@ class TransitioningComponent {
         let valuesOverTime: number[][] = []
         let node: NodeSnapshot = await this.title()
         while (ending(node)) {
-            valuesOverTime.push(this.transitioningValues(node.style))
+            valuesOverTime.push(this.transitioningValues(node.style, node))
             await t.wait(POLL_INTERVAL)
             node = await this.title.with({timeout: 1})()
         }
@@ -121,4 +121,14 @@ test('Custom Transitions', async t => {
             return [0, 0, 0, 0]
         }
     }).verify(t, inAnimation)
+
+    await new TransitioningComponent('tick-example', (style: StyleList, node: NodeSnapshot) => {
+        const match = style['color'].match(/rgb\((.*?)\)/)
+        if (match) {
+            const [r, g, b, _a] = match[1].split(',').map(n => parseFloat(n))
+            return [r, g, b, parseFloat(node.value)]
+        } else {
+            return [0, 0, 0, 0]
+        }
+    }).verify(t)
 })

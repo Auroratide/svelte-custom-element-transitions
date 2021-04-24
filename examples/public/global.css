@@ -77,3 +77,7 @@ slide-example { --example-color: #E6B800; }
 draw-example { --example-color: #FB6BB5; }
 basic-example { --example-color: #41AAB7; }
 in-and-out-example { --example-color: #D88F30; }
+tick-example {
+    --example-color: rgba(48, 48, 56, 1);
+    --progress-color: rgba(94, 191, 54, 1);
+}

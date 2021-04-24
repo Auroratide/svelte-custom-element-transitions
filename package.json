@@ -11,7 +11,7 @@
     "example:build": "rollup -c examples/rollup.config.js",
     "example:server": "sirv examples/public",
     "pretest": "npm run example:build",
-    "test": "testcafe --app \"npm run example:server\" chrome examples/usage.spec.ts"
+    "test": "testcafe --app \"npm run example:server\" chrome verification.ts"
   },
   "author": "Timothy Foster",
   "license": "ISC",

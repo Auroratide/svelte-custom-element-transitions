@@ -1,0 +1,82 @@
+:root {
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --color-bg: #eeeeee;
+    --color-fg: #ffffff;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin-top: 0;
+}
+
+body {
+    font-family: var(--font);
+    padding: 0.5em;
+    background: var(--color-bg);
+}
+
+main {
+    max-width: 75em;
+    margin: auto;
+}
+
+.examples {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    gap: 1em;
+    margin-bottom: 3em;
+}
+
+.examples > * {
+    width: 100%;
+}
+
+@media screen and (min-width: 75rem) {
+    .examples {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.page-footer {
+    text-align: center;
+    font-size: 0.85em;
+}
+
+button, ::part(button) {
+    font-family: var(--font);
+    font-size: 0.75em;
+    border-radius: 0.25em;
+    border: none;
+    padding: 0.625em 1.125em;
+    color: var(--color-fg);
+    text-transform: uppercase;
+    letter-spacing: 0.0625em;
+    box-shadow: 0 0.25em 0.25em -0.125em rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+button:hover, ::part(button):hover {
+    box-shadow: 0 0.25em 0.25em -0.125em rgba(0, 0, 0, 0.25), 0 0 0 3em rgba(0, 0, 0, 0.2) inset;
+}
+
+button:active, ::part(button):active {
+    box-shadow: 0 0 0 3em rgba(0, 0, 0, 0.3) inset;
+}
+
+fade-example {
+    --example-color: #448DDD;
+}
+
+blur-example {
+    --example-color: #5EBF36;
+}
+
+custom-example {
+    --example-color: #BE2C38;
+}

@@ -20,7 +20,7 @@ class TransitioningComponent {
     }
 
     private get title(): Selector {
-        return this.component.find('h2')
+        return this.component.find('h2.transition')
     }
 
     private get trigger(): Selector {

@@ -9,7 +9,9 @@ import {
  } from 'svelte/transition'
 
 /**
- * @method: Convert a svelte transition into a form that works for custom elements
+ * @method Convert a svelte transition into a form that works for custom elements
+ * @param original A transition function which works with vanilla Svelte
+ * @returns A new transition function that works with custom elements made with Svelte
  */
 export function forCustomElement<TElement extends ElementCSSInlineStyle & Element, TParams>(original: (node: TElement, params: TParams) => TransitionConfig): (node: TElement, params: TParams) => TransitionConfig {
     return (node: TElement, params: TParams) => {

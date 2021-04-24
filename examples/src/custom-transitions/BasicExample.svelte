@@ -1,8 +1,8 @@
-<svelte:options tag="custom-example" />
+<svelte:options tag="basic-example" />
 
 <script lang="ts">
-    import { forCustomElement } from './module'
-    import { spin as ogSpin } from './spin-transition'
+    import { forCustomElement } from '../module'
+    import { spin as ogSpin } from './spin'
 
     const spin = forCustomElement(ogSpin)
 
@@ -39,6 +39,8 @@
         background: var(--color-fg);
         border-radius: 0.25em;
         padding: 2em;
+        height: 100%;
+        box-sizing: border-box;
     }
 
     .container {

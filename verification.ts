@@ -93,7 +93,7 @@ test('Svelte Transitions', async t => {
 test('Custom Transitions', async t => {
     await t.expect(Selector('header h1').exists).ok()
 
-    await new TransitioningComponent('custom-example', (style: StyleList) => {
+    await new TransitioningComponent('basic-example', (style: StyleList) => {
         const match = style['transform'].match(/matrix\((.*?)\)/)
         if (match) {
             const [a, b, c, d, _tx, _ty] = match[1].split(',').map(n => parseFloat(n))

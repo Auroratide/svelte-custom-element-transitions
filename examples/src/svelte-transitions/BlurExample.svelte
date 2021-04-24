@@ -36,6 +36,8 @@
         background: var(--color-fg);
         border-radius: 0.25em;
         padding: 2em;
+        height: 100%;
+        box-sizing: border-box;
     }
 
     .container {

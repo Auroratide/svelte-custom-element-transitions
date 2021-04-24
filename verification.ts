@@ -20,7 +20,7 @@ class TransitioningComponent {
     }
 
     private get title(): Selector {
-        return this.component.find('h2.transition')
+        return this.component.find('.transition')
     }
 
     private get trigger(): Selector {
@@ -83,6 +83,10 @@ test('Svelte Transitions', async t => {
 
     await new TransitioningComponent('slide-example', (style: StyleList) => {
         return [parseFloat(style['height'] ?? '0')]
+    }).verify(t)
+
+    await new TransitioningComponent('draw-example', (style: StyleList) => {
+        return (style['stroke-dasharray'] ?? '0 0').split(' ').map(n => parseFloat(n))
     }).verify(t)
 })
 

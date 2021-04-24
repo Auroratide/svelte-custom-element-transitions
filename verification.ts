@@ -71,6 +71,16 @@ test('Svelte Transitions', async t => {
         }
     }).verify(t)
 
+    await new TransitioningComponent('scale-example', (style: StyleList) => {
+        const match = style['transform'].match(/matrix\((.*?)\)/)
+        if (match) {
+            const [a, _b, _c, d, _tx, _ty] = match[1].split(',').map(n => parseFloat(n))
+            return [a, d]
+        } else {
+            return [0, 0]
+        }
+    }).verify(t)
+
     await new TransitioningComponent('slide-example', (style: StyleList) => {
         return [parseFloat(style['height'] ?? '0')]
     }).verify(t)

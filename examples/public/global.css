@@ -72,5 +72,6 @@ button:active, ::part(button):active {
 fade-example { --example-color: #448DDD; }
 blur-example { --example-color: #5EBF36; }
 fly-example { --example-color: #BE2C38; }
-slide-example { --example-color: #9D77DD; }
+scale-example { --example-color: #9D77DD; }
+slide-example { --example-color: #E6B800; }
 custom-example { --example-color: #BE2C38; }

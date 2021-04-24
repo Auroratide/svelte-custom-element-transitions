@@ -60,6 +60,16 @@ test('Svelte Transitions', async t => {
         const match = style['filter'].match(/blur\((.*?)\)/)
         return [match ? parseFloat(match[1]) : 0]
     }).verify(t)
+
+    await new TransitioningComponent('fly-example', (style: StyleList) => {
+        const match = style['transform'].match(/matrix\((.*?)\)/)
+        if (match) {
+            const [_a, _b, _c, _d, tx, ty] = match[1].split(',').map(n => parseFloat(n))
+            return [tx, ty]
+        } else {
+            return [0, 0]
+        }
+    }).verify(t)
 })
 
 test('Custom Transitions', async t => {

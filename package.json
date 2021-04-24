@@ -6,8 +6,10 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist examples/public/build",
+    "preexample": "npm run build",
     "example": "rollup -c examples/rollup.config.js -w",
+    "preexample:build": "npm run build",
     "example:build": "rollup -c examples/rollup.config.js",
     "example:server": "sirv examples/public",
     "pretest": "npm run example:build",

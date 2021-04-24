@@ -56,6 +56,7 @@ export default {
         commonjs(),
 
         typescript({
+            tsconfig: path.join(__dirname, 'tsconfig.json'),
             sourceMap: !production,
             inlineSources: !production,
         }),

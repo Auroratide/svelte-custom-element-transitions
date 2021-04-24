@@ -1,7 +1,7 @@
 <svelte:options tag="blur-example" />
 
 <script lang="ts">
-    import { blur } from '../../dist'
+    import { blur } from './module'
 
     let hidden: boolean = false
     const toggle = () => hidden = !hidden

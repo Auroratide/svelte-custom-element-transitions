@@ -1,7 +1,7 @@
 <svelte:options tag="fade-example" />
 
 <script lang="ts">
-    import { fade } from '../../dist'
+    import { fade } from './module'
 
     let hidden: boolean = false
     const toggle = () => hidden = !hidden

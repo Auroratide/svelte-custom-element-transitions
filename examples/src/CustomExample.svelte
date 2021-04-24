@@ -1,7 +1,7 @@
 <svelte:options tag="custom-example" />
 
 <script lang="ts">
-    import { forCustomElement } from '../../dist'
+    import { forCustomElement } from './module'
     import { spin as ogSpin } from './spin-transition'
 
     const spin = forCustomElement(ogSpin)

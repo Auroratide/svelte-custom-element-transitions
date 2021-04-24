@@ -5,5 +5,6 @@ import './svelte-transitions/FlyExample.svelte'
 import './svelte-transitions/ScaleExample.svelte'
 import './svelte-transitions/SlideExample.svelte'
 import './custom-transitions/BasicExample.svelte'
+import './custom-transitions/InAndOutExample.svelte'
 
 export default { }

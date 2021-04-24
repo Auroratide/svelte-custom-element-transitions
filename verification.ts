@@ -7,6 +7,10 @@ fixture `Verify @auroratide/svelte-custom-element-transitions`
 const POLL_INTERVAL = 50 // milliseconds
 
 type StyleList = { [prop: string]: string }
+type VerificationEnding = (node: NodeSnapshot) => boolean
+
+const outAnimation: VerificationEnding = (node: NodeSnapshot) => node ? true : false
+const inAnimation: VerificationEnding = (node: NodeSnapshot) => node.style['animation-name'] !== 'none'
 
 class TransitioningComponent {
     private name: string
@@ -27,13 +31,12 @@ class TransitioningComponent {
         return this.component.find('button')
     }
     
-    async verify(t: TestController): Promise<void> {
-        await t.expect(this.title.exists).ok()
+    async verify(t: TestController, ending: VerificationEnding = outAnimation): Promise<void> {
         await t.click(this.trigger)
-
+        
         let valuesOverTime: number[][] = []
         let node: NodeSnapshot = await this.title()
-        while (node) {
+        while (ending(node)) {
             valuesOverTime.push(this.transitioningValues(node.style))
             await t.wait(POLL_INTERVAL)
             node = await this.title.with({timeout: 1})()
@@ -102,4 +105,20 @@ test('Custom Transitions', async t => {
             return [0, 0, 0, 0]
         }
     }).verify(t)
+
+    // Out
+    await new TransitioningComponent('in-and-out-example', (style: StyleList) => {
+        return [parseFloat(style['opacity'] ?? '0')]
+    }).verify(t)
+
+    // In
+    await new TransitioningComponent('in-and-out-example', (style: StyleList) => {
+        const match = style['transform'].match(/matrix\((.*?)\)/)
+        if (match) {
+            const [a, b, c, d, _tx, _ty] = match[1].split(',').map(n => parseFloat(n))
+            return [a, b, c, d]
+        } else {
+            return [0, 0, 0, 0]
+        }
+    }).verify(t, inAnimation)
 })

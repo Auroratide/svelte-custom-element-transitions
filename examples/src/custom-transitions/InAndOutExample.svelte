@@ -1,0 +1,60 @@
+<svelte:options tag="in-and-out-example" />
+
+<script lang="ts">
+    import { forCustomElement, fade } from '../module'
+    import { spin as ogSpin } from './spin'
+
+    const spin = forCustomElement(ogSpin)
+
+    let hidden: boolean = false
+    const toggle = () => hidden = !hidden
+</script>
+
+<section class="example">
+    <button part="button" on:click={toggle}>Toggle</button>
+    <div class="container">
+        <h2 class="placeholder">In & Out Example</h2>
+        {#if !hidden}
+            <h2 class="transition" in:spin out:fade>In & Out Example</h2>
+        {/if}
+    </div>
+</section>
+
+<style>
+    :host {
+        display: block;
+    }
+
+    h2 {
+        margin: 0;
+    }
+
+    button {
+        background: var(--example-color);
+        margin-bottom: 2em;
+    }
+
+    .example {
+        text-align: center;
+        background: var(--color-fg);
+        border-radius: 0.25em;
+        padding: 2em;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    .container {
+        position: relative;
+    }
+
+    .placeholder {
+        visibility: hidden;
+    }
+
+    .transition {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+</style>

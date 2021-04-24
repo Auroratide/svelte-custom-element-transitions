@@ -17,6 +17,9 @@
   },
   "author": "Timothy Foster",
   "license": "ISC",
+  "peerDependencies": {
+    "svelte": "3.x"
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^18.0.0",
     "@rollup/plugin-node-resolve": "^11.2.1",

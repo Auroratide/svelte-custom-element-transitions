@@ -49,9 +49,8 @@ class TransitioningComponent {
     }
 }
 
-test('Transitions', async t => {
-    const title = Selector('header h1')
-    await t.expect(title.exists).ok()
+test('Svelte Transitions', async t => {
+    await t.expect(Selector('header h1').exists).ok()
 
     await new TransitioningComponent('fade-example', (style: StyleList) => {
         return [parseFloat(style['opacity'] ?? '0')]
@@ -61,6 +60,10 @@ test('Transitions', async t => {
         const match = style['filter'].match(/blur\((.*?)\)/)
         return [match ? parseFloat(match[1]) : 0]
     }).verify(t)
+})
+
+test('Custom Transitions', async t => {
+    await t.expect(Selector('header h1').exists).ok()
 
     await new TransitioningComponent('custom-example', (style: StyleList) => {
         const match = style['transform'].match(/matrix\((.*?)\)/)

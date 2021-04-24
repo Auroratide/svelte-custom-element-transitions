@@ -1,7 +1,7 @@
-<svelte:options tag="blur-example" />
+<svelte:options tag="fade-example" />
 
 <script lang="ts">
-    import { blur } from './module'
+    import { fade } from '../module'
 
     let hidden: boolean = false
     const toggle = () => hidden = !hidden
@@ -10,9 +10,9 @@
 <section class="example">
     <button part="button" on:click={toggle}>Toggle</button>
     <div class="container">
-        <h2 class="placeholder">Blur Example</h2>
+        <h2 class="placeholder">Fade Example</h2>
         {#if !hidden}
-            <h2 class="transition" transition:blur>Blur Example</h2>
+            <h2 class="transition" transition:fade>Fade Example</h2>
         {/if}
     </div>
 </section>

@@ -1,5 +1,5 @@
-import './BlurExample.svelte'
-import './FadeExample.svelte'
+import './svelte-transitions/BlurExample.svelte'
+import './svelte-transitions/FadeExample.svelte'
 import './CustomExample.svelte'
 
 export default { }

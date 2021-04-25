@@ -25,3 +25,11 @@ export const myTransition = forCustomElement((node, params) => {
 See the **[examples](examples)** for different possible use cases.
 
 > By the way, each example is run as an automated test!
+
+## Contributing
+
+This library is intended to become deprecated as soon as Svelte has an official solution. In the meantime, here are some helpful notes for anyone who wants to contribute:
+
+* `npm run build`: Build the library
+* `npm test`: Run verification script (in Chrome)
+* `npm run example`: See transitions in action

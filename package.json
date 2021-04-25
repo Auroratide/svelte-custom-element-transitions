@@ -1,10 +1,14 @@
 {
   "name": "@auroratide/svelte-custom-element-transitions",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Utility for making svelte transitions work on custom elements",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "keywords": ["svelte", "transitions", "web components"],
+  "keywords": [
+    "svelte",
+    "transitions",
+    "web components"
+  ],
   "scripts": {
     "build": "tsc",
     "clean": "rm -rf dist examples/public/build",

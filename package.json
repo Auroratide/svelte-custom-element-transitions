@@ -4,6 +4,7 @@
   "description": "Utility for making svelte transitions work on custom elements",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "keywords": ["svelte", "transitions", "web components"],
   "scripts": {
     "build": "tsc",
     "clean": "rm -rf dist examples/public/build",
@@ -16,7 +17,14 @@
     "test": "testcafe --app \"npm run example:server\" chrome verification.ts",
     "prepublishOnly": "npm-run-all clean test"
   },
-  "author": "Timothy Foster",
+  "author": {
+    "name": "Timothy Foster",
+    "url": "https://auroratide.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Auroratide/svelte-custom-element-transitions"
+  },
   "license": "ISC",
   "peerDependencies": {
     "svelte": "3.x"
